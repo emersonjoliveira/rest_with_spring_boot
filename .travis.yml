@@ -1,0 +1,18 @@
+language: bash
+services: docker
+before_install:
+    - cd rest_with_spring_boot/
+    - echo "We are in the Docker folder!"
+script:
+    - docker-compose build
+before_deploy:
+    - echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
+deploy:
+    provider: script
+    script:
+        docker push emersondcker/mysql_spring_boot;
+        docker push emersondcker/rest-with-spring-boot;
+    on:
+        branch: master
+notifications:
+    email: false
