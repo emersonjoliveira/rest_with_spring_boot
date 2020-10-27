@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    username: root
+    password: admin
+    driverClassName: com.mysql.cj.jdbc.Driver
+    #url: jdbc:mysql://db:3306/rest_with_spring_boot_udemy?useTimezone=true&serverTimezone=UTC&useSSL=false
+    url: jdbc:mysql://localhost:3306/rest_with_spring_boot_udemy?useTimezone=true&serverTimezone=UTC&useSSL=false
+  jpa:
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+#jackson configs
+  jackson.default-property-inclusion: non_null
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215MB
+
+file.upload-dir: /workspaceUdemy/uploadDir
+
+#flyway configs
+flyway:
+  #url: jdbc:mysql://db:3306/
+  url: jdbc:mysql://localhost:3306/
+  schemas: rest_with_spring_boot_udemy
+  user: root
+  password: admin
