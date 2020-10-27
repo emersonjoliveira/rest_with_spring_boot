@@ -1,21 +1,13 @@
 package br.com.emerson.data.model;
 
-import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "person")
-public class Person implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Person extends EntityBase<Long> {
 
     @Column(name = "first_name", nullable = false, length = 80)
     private String firstName;
@@ -31,14 +23,6 @@ public class Person implements Serializable {
 
     @Column(nullable = false)
     private Boolean enabled;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;

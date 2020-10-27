@@ -1,26 +1,17 @@
 package br.com.emerson.data.model;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "books")
-public class Book implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Book extends EntityBase<Long> {
 
     @Column
     private String author;
@@ -34,14 +25,6 @@ public class Book implements Serializable {
 
     @Column
     private String title;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getAuthor() {
         return author;

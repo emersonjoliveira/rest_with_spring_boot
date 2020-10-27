@@ -1,6 +1,5 @@
 package br.com.emerson.data.model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -8,9 +7,6 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -20,12 +16,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Table(name = "users")
-public class User implements UserDetails, Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
-    private Long id;
+public class User extends EntityBase<Long> implements UserDetails {
 
     @Column(name = "user_name", unique = true)
     private String userName;
@@ -57,14 +48,6 @@ public class User implements UserDetails, Serializable {
         List<String> roles = new ArrayList<>();
         this.permissions.forEach(permission -> roles.add(permission.getDescription()));
         return roles;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getUserName() {
