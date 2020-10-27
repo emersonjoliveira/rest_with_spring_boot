@@ -11,7 +11,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "books")
-public class Book extends EntityBase<Long> {
+public class Book extends EntityBase {
 
     @Column
     private String author;

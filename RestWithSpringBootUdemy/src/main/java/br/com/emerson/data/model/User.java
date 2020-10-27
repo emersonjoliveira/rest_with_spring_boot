@@ -16,7 +16,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Table(name = "users")
-public class User extends EntityBase<Long> implements UserDetails {
+public class User extends EntityBase implements UserDetails {
 
     @Column(name = "user_name", unique = true)
     private String userName;

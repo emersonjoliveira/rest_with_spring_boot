@@ -8,7 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 @Entity
 @Table(name = "permission")
-public class Permission extends EntityBase<Long> implements GrantedAuthority {
+public class Permission extends EntityBase implements GrantedAuthority {
 
     @Column
     private String description;

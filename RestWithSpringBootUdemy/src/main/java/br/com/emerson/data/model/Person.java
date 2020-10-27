@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "person")
-public class Person extends EntityBase<Long> {
+public class Person extends EntityBase {
 
     @Column(name = "first_name", nullable = false, length = 80)
     private String firstName;
